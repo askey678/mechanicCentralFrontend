@@ -1,0 +1,60 @@
+
+.About {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: first baseline;
+    align-items: center;
+  }
+.About-title {
+    font-size: px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0rem;
+    font-style: normal;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  .About-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  
+  .About-features {
+    margin-top: 5rem;
+    text-align: center;
+  }
+  
+  .About-features h2 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+   
+  }
+  
+  .About-features ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .About-features li {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .About-title-text {
+    font-size: 6rem; /* increase font size to 4rem */
+    font-weight: bold; /* set font weight to bold */
+    text-shadow: 2px 2px 4px rgba(70, 10, 10, 0.5); /* add text-shadow */
+    transition: all 0.2s ease-in-out; /* add a transition effect */
+  }
+  
+  .About-title-text:hover {
+    transform: scale(1.2); /* add a pop-up effect on hover */
+  }
+  
