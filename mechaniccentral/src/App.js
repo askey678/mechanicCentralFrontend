@@ -9,7 +9,8 @@ import Services from './pages/Services';
 import Package from './pages/Package';
 import Onspotmechanic from './pages/Onspotmechanic';
 import History from './pages/History';
-import Logout from './pages/Logout'
+import Logout from './pages/Logout';
+import Navbar from './components/Navbar';
 
 
   function App() {
@@ -23,7 +24,13 @@ import Logout from './pages/Logout'
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/customerpage/*" element={<CustomerpageRoutes />} />
+                <Route path="/customerpage" element={<CustomerpageRoutes />} />
+                <Route path="/customerpage/services" element={<Services />} />
+                 <Route path="/customerpage/package" element={<Package />} />
+                <Route path="/customerpage/onspotmechanic" element={<Onspotmechanic />} />
+                <Route path="/customerpage/appointment" element={<Appointment />} />
+                <Route path="/customerpage/history" element={<History />} />
+                <Route path="/customerpage/logout" element={<Logout />} />
               </Routes>
             </div>
           </Router>
@@ -31,48 +38,16 @@ import Logout from './pages/Logout'
       </div>
     );
   }
-  
+    
   function CustomerpageRoutes() {
     return (
       <>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-none p-3 mb-5 rounded float">
-          <h4 className="navbar-brand" href="#">Customer Page &nbsp;&nbsp;&nbsp; </h4>
-          <div className="collapse navbar-collapse">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to="/customerpage/services"><h5>Services &nbsp;&nbsp; </h5></Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/customerpage/package"><h5>Package &nbsp;&nbsp; </h5></Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/customerpage/onspotmechanic"><h5>Call Mechanic &nbsp;&nbsp; </h5></Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/customerpage/appointment"><h5>My Appoinment &nbsp;&nbsp; </h5></Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/customerpage/history"><h5>History &nbsp;&nbsp; </h5></Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/customerpage/logout"><h5>Logout &nbsp;&nbsp; </h5></Link>
-              </li>
-            </ul>
-          </div>
-        </nav>
-  
-        <Routes>
-          <Route path="/customerpage/services" element={<Services />} />
-          <Route path="/customerpage/package" element={<Package />} />
-          <Route path="/customerpage/onspotmechanic" element={<Onspotmechanic />} />
-          <Route path="/customerpage/appointment" element={<Appointment />} />
-          <Route path="/customerpage/history" element={<History />} />
-          <Route path="/customerpage/logout" element={<Logout />} />
-        </Routes>
-  
+       <Navbar/>
       </>
     );
   }
+  
+
   
   function Navigation() {
     const location = useLocation();

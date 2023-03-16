@@ -9,11 +9,12 @@ const Login = () => {
 
   const[email, setEmail]=useState('')
   const[password, setPassword]=useState('')
-
+// const {isAuthenticated, loginWithRedirect} = useAuth0();
   const navigate=useNavigate()
-
+  
+ 
   const handleSubmit = (event) =>{
-    event.preventDefault();
+      event.preventDefault();
 
    axios.get(url+`/customer/login?email=${email}&password=${password}`, {
       email,
@@ -22,8 +23,16 @@ const Login = () => {
       if (response.status === 200) {
         console.log("Login successful");
         const customerDto = response.data;
-        alert("Login Successfully!! Welcome "+customerDto.name)
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("customerDto.id", JSON.stringify(customerDto.id));
+        localStorage.setItem("customerDto.name", JSON.stringify(customerDto.name));
+        alert("Login Successfully!! Welcome "+customerDto.name );
+
+        // JSON.parse(localStorage.getItem("customerDto.id"))
+        // console.log(isAuthenticated)
+        // loginWithRedirect();
         navigate('/customerpage');
+
       }
     })
     .catch(error => console.log(error));
@@ -66,9 +75,7 @@ const Login = () => {
 
   {/* <!-- Register buttons --> */}
   <div className="text-center">
-    <p>Not a member? <Link to="/register">
-                    <a className=" btn-warning">Register</a>
-                </Link> </p>
+    <p>Not a member? <Link to="/register" className=" btn-warning">Register </Link> </p>
   
    
   </div>
@@ -78,4 +85,5 @@ const Login = () => {
      </div>
     )
 }
+
 export default Login
